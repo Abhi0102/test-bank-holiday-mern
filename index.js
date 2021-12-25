@@ -21,12 +21,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("/", routes);
-
 app.use(express.static("client/build"));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
+
+app.use("/", routes);
+
 app.listen(port, function (err) {
   if (err) {
     console.log(`Error : ${err}`);
