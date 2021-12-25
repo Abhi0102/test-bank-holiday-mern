@@ -5,7 +5,7 @@ const db = require("./config/mongoose");
 const passport = require("passport");
 const jwtPassport = require("./config/passport-jwt");
 const env = require("./config/environment");
-
+const path = require("path");
 const port = env.port;
 const app = express();
 
@@ -24,6 +24,9 @@ app.use(function (req, res, next) {
 app.use("/", routes);
 
 app.use(express.static("client/build"));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 app.listen(port, function (err) {
   if (err) {
     console.log(`Error : ${err}`);
