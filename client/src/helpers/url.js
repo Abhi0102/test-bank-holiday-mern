@@ -1,6 +1,5 @@
 export const APIUrls = {
-  login: () => " https://bank-holiday-final.herokuapp.com/login",
-  signup: () => "https://bank-holiday-final.herokuapp.com/register",
-  checkAuthentication: () =>
-    "https://bank-holiday-final.herokuapp.com/authenticate",
+  login: () => " https://bank-final.herokuapp.com/login",
+  signup: () => "https://bank-final.herokuapp.com/register",
+  checkAuthentication: () => "https://bank-final.herokuapp.com/authenticate",
 };
