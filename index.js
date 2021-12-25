@@ -6,7 +6,7 @@ const passport = require("passport");
 const jwtPassport = require("./config/passport-jwt");
 const env = require("./config/environment");
 const path = require("path");
-const port = env.port;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.urlencoded());
@@ -28,9 +28,9 @@ app.get("*", (req, res) => {
 
 app.use("/", routes);
 
-app.listen(port, function (err) {
+app.listen(PORT, function (err) {
   if (err) {
     console.log(`Error : ${err}`);
   }
-  console.log(`Server Running on Port: ${port}`);
+  console.log(`Server Running on Port: ${PORT}`);
 });
