@@ -21,12 +21,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use("/user", routes);
 app.use(express.static("client/build"));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
-
-app.use("/user", routes);
 
 app.listen(PORT, function (err) {
   if (err) {
